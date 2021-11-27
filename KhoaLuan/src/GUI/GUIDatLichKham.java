@@ -230,7 +230,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				
 				
 				
-				String[]headers = {"Mã","Ghi Chú","Thời Gian", "Người khám","Bệnh nhân","Triệu Chứng","Hình thức","Trạng thái","ID bệnh nhân"};
+				String[]headers = {"Mã","Ghi Chú","Thời Gian","Bệnh nhân","Triệu Chứng","Hình thức","Trạng thái","ID bệnh nhân"};
 				datamodel = new DefaultTableModel(headers,0);
 				contentPane.add(scrollPane= new JScrollPane(table = new JTable(datamodel)));
 				scrollPane.setBounds(51, 185, 1060, 109);
@@ -376,8 +376,8 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		btncapnhat.setEnabled(true);
 		
 		tatghichu.setText(table.getValueAt(row, 1).toString());
-		tattrieuchung.setText(table.getValueAt(row, 5).toString());
-		if(table.getValueAt(row, 7).toString().equals("Đang chờ khám"))
+		tattrieuchung.setText(table.getValueAt(row, 4).toString());
+		if(table.getValueAt(row, 6).toString().equals("Đang chờ khám"))
 		{
 			rdbtnNewRadioButton_2.setSelected(false);
 			
@@ -388,7 +388,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			rdbtnNewRadioButton_2.setSelected(true);
 		}
 		
-		comboBox.setSelectedItem(table.getValueAt(row, 8));
+		comboBox.setSelectedItem(table.getValueAt(row, 7));
 	}
 	
 	@Override
@@ -430,7 +430,15 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		{
 			
 			LuuLichKham();
+			removeTable();
+			updateTableData();
+			comboBox.setEnabled(false);
 			
+			tatghichu.setEnabled(false);
+			tattrieuchung.setEnabled(false);
+			btnluu.setEnabled(false);
+			btncapnhat.setEnabled(false);
+			btnthem.setText("Thêm");
 			
 		}else if(o==btnthem)
 		{
@@ -455,7 +463,27 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			}
 			
 		}else if(o==btncapnhat) {
-			CapNhat();
+			if(btncapnhat.getText().equals("Cập nhật"))
+			{
+				comboBox.setEnabled(true);
+				
+				tatghichu.setEnabled(true);
+				tattrieuchung.setEnabled(true);
+				btnluu.setEnabled(false);
+				btnthem.setEnabled(false);
+				btncapnhat.setText("Xác nhận");
+			}else if(btncapnhat.getText().equals("Xác nhận"))
+			{
+				comboBox.setEnabled(false);
+				
+				tatghichu.setEnabled(false);
+				tattrieuchung.setEnabled(false);
+				btnthem.setEnabled(true);
+				btnluu.setEnabled(false);
+				btncapnhat.setText("Cập nhật");
+				CapNhat();
+			}
+			
 		}
 		
 	}
@@ -492,7 +520,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 					trangthai="Đã khám";
 				else if(pk.getTrangThai().equals("4"))
 					trangthai="Đang trong hàng đợi";
-				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),benhnhanservice.doichuoitungay(pk.getThoiGian()),nhanvien,pk.getBenhNhan().getTen(),pk.getTrieuChung(),hinhThuc,trangthai,String.valueOf(pk.getBenhNhan().getId())};
+				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),benhnhanservice.doichuoitungay(pk.getThoiGian()),pk.getBenhNhan().getTen(),pk.getTrieuChung(),hinhThuc,trangthai,String.valueOf(pk.getBenhNhan().getId())};
 				datamodel.addRow(rowdata);
 			}
 		}
@@ -504,7 +532,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	public void XoaRong() {
 		tattrieuchung.setText("");
 		tatghichu.setText("");
-		comboBox.setSelectedItem(null);
+		
 		
 	}
 	public void LuuLichKham() {

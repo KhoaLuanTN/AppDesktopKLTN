@@ -757,12 +757,12 @@ public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionL
 				txtsDT.requestFocus();
 				return false;
 			}
-		if(txtcmnd.getText().equals("")) 
-		{
-			JOptionPane.showConfirmDialog(this, "Bạn chưa nhập số chứng minh nhan dân !","Chú ý",JOptionPane.CLOSED_OPTION);
-			txtcmnd.requestFocus();
-			return false;
-		}
+//		if(txtcmnd.getText().equals("")) 
+//		{
+//			JOptionPane.showConfirmDialog(this, "Bạn chưa nhập số chứng minh nhan dân !","Chú ý",JOptionPane.CLOSED_OPTION);
+//			txtcmnd.requestFocus();
+//			return false;
+//		}
 		if(txtdiaChi.getText().equals("")) {
 			JOptionPane.showConfirmDialog(this, "Bạn chưa nhập địa chỉ !","Chú ý",JOptionPane.CLOSED_OPTION);
 			txtdiaChi.requestFocus();

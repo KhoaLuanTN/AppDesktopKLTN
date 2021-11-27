@@ -24,6 +24,7 @@ public class HoaDonDAO {
 	static String GET_ALL_HOA_DON=url+"/hoadon/getall";
 	static String PUT_HOA_DON=url+"/hoadon/update";
 	static String GET_ALL_HOA_DON_CHUA_THANH_TOAN=url+"/hoadon/getHoaDonChuaThanhToan";
+	static String GET_ALL_HOA_DON_DA_THANH_TOAN=url+"/hoadon/getHoaDonDaThanhToan";
 	/**
 	 * @author Vien
 	 * date : 15/5/2021
@@ -83,6 +84,54 @@ public class HoaDonDAO {
 	public  List<HoaDon>  GetAllHoaDonChuaThanhToan(Long id) throws IOException {
 		List<HoaDon>getall=new ArrayList<>();
 	    URL urlForGetRequest = new URL(GET_ALL_HOA_DON_CHUA_THANH_TOAN+"/"+id);
+	    String readLine = null;
+	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
+	    conection.setRequestMethod("GET"); 
+	    conection.setRequestProperty("Content-Type", "application/json");
+	    int responseCode = conection.getResponseCode();
+
+	    if (responseCode == HttpURLConnection.HTTP_OK) {
+	        BufferedReader in = new BufferedReader(
+	            new InputStreamReader(conection.getInputStream()));
+	        String response = new String();
+	        while ((readLine = in .readLine()) != null) {
+	            response+=(readLine);
+	        } in .close();
+	        if(responseCode==200)
+	        {
+	        	Gson gson = new GsonBuilder()
+	        		    .setDateFormat("yyyy-MM-dd")
+	        		    .create();
+		        JsonParser parser = new JsonParser();
+		        JsonArray object = (JsonArray) parser.parse(response);
+		        HoaDon[] hoadonList = gson.fromJson(object, HoaDon[].class);
+		        	
+		        for(int i=0;i<hoadonList.length;i++)
+		        	getall.add(hoadonList[i]);
+	        }
+	        else
+	        {
+	        	return null;
+	        }
+	        
+	    } else {
+	        System.out.println("GET NOT WORKED");
+	    }
+		return getall;
+
+	}
+	//[END GetALL]
+	
+	/**
+	 * @author Vien
+	 * date: 15/5/2021
+	 * @return list danh sách hóa đơn chưa thanh toán
+	 * @decription: Lấy danh sách hóa đơn chưa thanh toán được gọi về từ RestFullAPI
+	 * */
+	//[START GetAll]
+	public  List<HoaDon>  GetAllHoaDonDaThanhToan() throws IOException {
+		List<HoaDon>getall=new ArrayList<>();
+	    URL urlForGetRequest = new URL(GET_ALL_HOA_DON_DA_THANH_TOAN);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
 	    conection.setRequestMethod("GET"); 
