@@ -25,7 +25,10 @@ public class TaiKhoanDAO {
 //	public  String DELETE_TAI_KHOAN="http://13.212.45.136:5001/taikhoan/delete";
 //	public  String PUT_TAI_KHOAN="http://13.212.45.136:5001/taikhoan/update";
 //	public  String GET_ALL_ROLE="http://13.212.45.136:5001/role/getall";
-	static String url="http://localhost:5001";
+	
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
+	
 	public  String GET_ALL_TAI_KHOAN=url+"/taikhoan/getall";
 	public  String GET_ONE_TAI_KHOAN=url+"/taikhoan/getone";
 	public  String POST_TAI_KHOAN=url+"/taikhoan/insert"; 

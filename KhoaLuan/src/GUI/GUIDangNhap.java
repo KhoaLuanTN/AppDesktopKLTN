@@ -30,6 +30,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.SystemColor;
 
 @SuppressWarnings("serial")
 public class GUIDangNhap extends JFrame {
@@ -79,6 +80,7 @@ public class GUIDangNhap extends JFrame {
 		
 		panel = new JPanel();
 		panel.setBounds(0, 0, 532, 311);
+		panel.setBackground(SystemColor.activeCaption);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -125,6 +127,7 @@ public class GUIDangNhap extends JFrame {
 		panel.add(lblmatKhau);
 		
 		btndangNhap = new JButton("Đăng Nhập");
+		btndangNhap.setBackground(new Color(102, 205, 170));
 		btndangNhap.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Dangnhap();
@@ -136,6 +139,7 @@ public class GUIDangNhap extends JFrame {
 		panel.add(btndangNhap);
 		
 		btnThoat = new JButton("Thoát");
+		btnThoat.setBackground(new Color(102, 205, 170));
 		btnThoat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

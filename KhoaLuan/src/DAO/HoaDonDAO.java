@@ -18,7 +18,8 @@ import Entity.HoaDon;
 
 public class HoaDonDAO {
 
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	static String POST_HOA_DON=url+"/hoadon/insert";
 	static String GET_ONE_HOA_DON=url+"/hoadon/getone";
 	static String GET_ALL_HOA_DON=url+"/hoadon/getall";

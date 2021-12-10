@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import DAO.TaiKhoanDAO;
 import Entity.NhanVien;
 import Entity.TaiKhoan;
+import java.awt.SystemColor;
 
 
 public class GUIDoiMatKhau extends JFrame implements ActionListener{
@@ -49,6 +50,7 @@ public class GUIDoiMatKhau extends JFrame implements ActionListener{
 		this.mtaikhoan=taikhoan;
 		this.mnhanvien=nhanvien;
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -73,11 +75,13 @@ public class GUIDoiMatKhau extends JFrame implements ActionListener{
 		contentPane.add(lblXcNhnMt);
 		
 		btnxacNhan = new JButton("Xác Nhận");
+		btnxacNhan.setBackground(new Color(102, 205, 170));
 		btnxacNhan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnxacNhan.setBounds(68, 227, 110, 23);
 		contentPane.add(btnxacNhan);
 		
 		btnhuy = new JButton("Hủy");
+		btnhuy.setBackground(new Color(102, 205, 170));
 		
 		
 		btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 16));

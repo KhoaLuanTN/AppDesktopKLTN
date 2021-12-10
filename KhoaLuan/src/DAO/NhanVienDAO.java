@@ -32,7 +32,8 @@ public class NhanVienDAO {
 //	static String GET_NHAN_VIEN_THEO_CMND="http://13.212.45.136:5001/nhanvien/getbycmnd";
 //	static String GET_ONE_ROLE="http://13.212.45.136:5001/role/getone";
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	
 	static String GET_ALL_NHAN_VIEN=url+"/nhanvien/getall";
 	static String PUT_NHAN_VIEN=url+"/nhanvien/update";

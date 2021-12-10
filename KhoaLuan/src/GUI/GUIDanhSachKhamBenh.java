@@ -37,6 +37,7 @@ import Entity.TaiKhoan;
 import javax.jms.JMSException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, ActionListener{
 
@@ -66,18 +67,19 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 		this.mLichHen=new LichHen();
 		this.lichhenservice=new LichHenDAO();
 		
-		setTitle("Danh sách bênh nhân khám bệnh");
+		setTitle("Sắp xếp ưu tiên");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1177, 700);
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblHpngBn = new JLabel("Danh sách bệnh nhân");
+		JLabel lblHpngBn = new JLabel("Sắp Xếp Ưu Tiên");
 		lblHpngBn.setBounds(304, 0, 436, 48);
 		lblHpngBn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHpngBn.setFont(new Font("Tahoma", Font.PLAIN, 32));
@@ -93,22 +95,25 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 446);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Danh sách bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 		
 		btnhuy = new JButton("Quay Lại");
+		btnhuy.setBackground(new Color(102, 205, 170));
 		btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnhuy.setBounds(976, 545, 155, 57);
 		btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 		contentPane.add(btnhuy);
 		
 		btncapnhat = new JButton("Cập nhật danh sách");
+		btncapnhat.setBackground(new Color(102, 205, 170));
 		btncapnhat.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btncapnhat.setBounds(695, 545, 226, 57);
 		contentPane.add(btncapnhat);
 		
 		btnChuyen = new JButton("Chuyển lên hàng đợi");
+		btnChuyen.setBackground(new Color(102, 205, 170));
 		btnChuyen.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnChuyen.setBounds(405, 545, 239, 57);
 		contentPane.add(btnChuyen);

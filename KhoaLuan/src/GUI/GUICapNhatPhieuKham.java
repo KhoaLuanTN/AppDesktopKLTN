@@ -113,6 +113,7 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 		
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -128,7 +129,7 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 125);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 		
@@ -243,7 +244,7 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 				JPanel panel_1 = new JPanel();
 				panel_1.setLayout(null);
 				panel_1.setBorder(new TitledBorder(null, "Kết quả khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+				panel_1.setBackground(new Color(95, 158, 160));
 				panel_1.setBounds(26, 351, 1106, 202);
 				contentPane.add(panel_1);
 				
@@ -311,18 +312,21 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 			});
 				
 			btnhuy = new JButton("Quay Lại");
+			btnhuy.setBackground(new Color(102, 205, 170));
 			btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 			btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			btnhuy.setBounds(977, 564, 155, 57);
 			contentPane.add(btnhuy);
 				
 			btnluu = new JButton("Cập nhật");
+			btnluu.setBackground(new Color(102, 205, 170));
 			btnluu.setIcon(new ImageIcon("luu.png"));
 			btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			btnluu.setBounds(767, 564, 155, 57);
 			contentPane.add(btnluu);
 				
 			btnthem = new JButton("Sửa");
+			btnthem.setBackground(new Color(102, 205, 170));
 			btnthem.setIcon(new ImageIcon("sua.png"));
 			btnthem.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			btnthem.setBounds(53, 564, 155, 57);
@@ -338,7 +342,7 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 			panel_2.setBounds(28, 195, 1104, 147);
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Danh Sách Phiếu khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+			panel_2.setBackground(new Color(95, 158, 160));
 			contentPane.add(panel_2);
 				
 			btnhuy.addActionListener(this);

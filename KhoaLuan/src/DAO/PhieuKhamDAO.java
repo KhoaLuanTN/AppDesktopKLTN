@@ -23,7 +23,8 @@ public class PhieuKhamDAO {
 //	static String PUT_PHIEU_KHAM_BENH="http://13.212.45.136:5001/phieukham/update";
 //	static String GET_ONE_PHIEU_KHAM="http://13.212.45.136:5001/phieukham/getone";
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	static String GET_PHIEU_KHAM_BY_ID_BENH_NHAN=url+"/phieukham/getphieukhambybenhnhanid";
 	static String POST_PHIEU_KHAM_BENH=url+"/phieukham/insert";
 	static String PUT_PHIEU_KHAM_BENH=url+"/phieukham/update";

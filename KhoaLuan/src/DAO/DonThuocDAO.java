@@ -14,7 +14,8 @@ import Entity.DonThuoc;
 
 public class DonThuocDAO {
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	static String POST_DON_THUOC=url+"/donthuoc/insert";
 	
 	/**

@@ -124,6 +124,7 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -137,7 +138,7 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 		panel_1 = new JPanel();
 		panel_1.setBounds(28, 59, 1104, 244);
 		contentPane.add(panel_1);
-		panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_1.setBackground(new Color(95, 158, 160));
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin thuốc", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setLayout(null);
 		
@@ -215,28 +216,25 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 		panel_2.setBounds(28, 323, 1104, 192);
 		panel_2.setLayout(null);
 		panel_2.setBorder(new TitledBorder(null, "Danh sách chi tiết thuốc", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_2.setBackground(new Color(95, 158, 160));
 		contentPane.add(panel_2);
 		
-		btnhuy = new JButton("Quay Lại");
-		btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
-		btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnhuy.setBounds(977, 564, 155, 57);
-		contentPane.add(btnhuy);
 		
 		btnluu = new JButton("Lưu đơn thuốc");
+		btnluu.setBackground(new Color(102, 205, 170));
 		btnluu.setIcon(new ImageIcon("luu.png"));
 		btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnluu.setBounds(694, 564, 228, 57);
 		contentPane.add(btnluu);
 		
 		btnthem = new JButton("Thêm");
+		btnthem.setBackground(new Color(102, 205, 170));
 		btnthem.setIcon(new ImageIcon("sua.png"));
 		btnthem.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnthem.setBounds(53, 564, 155, 57);
 		contentPane.add(btnthem);
 		
-		btnhuy.addActionListener(this);
+		
 		btnthem.addActionListener(this);
 		btnluu.addActionListener(this);
 	}
@@ -278,12 +276,7 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 		int ketquapostHD=0;
 		
 		int ketqua=0;
-		if(o==btnhuy)
-		{
-			dispose();
-			GUIChucNang cn=new GUIChucNang(mTaiKhoan, mNhanVien);
-			cn.setVisible(true);
-		}else if(o==btnthem)
+		if(o==btnthem)
 		{
 			ChiTietDonThuoc ctdt=new ChiTietDonThuoc();
 			ketqua=0;

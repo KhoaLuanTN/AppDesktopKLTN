@@ -20,7 +20,8 @@ import Entity.LichHen;
 
 public class LichHenDAO {
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	static String POST_LICH_HEN=url+"/lichhen/insert";
 	static String GET_ONE_LICH_HEN=url+"/lichhen/getone";
 	static String GET_ALL_LICH_HEN_BY_BN=url+"/lichhen/getlichhenbybn";

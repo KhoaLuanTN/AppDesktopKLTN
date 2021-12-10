@@ -124,6 +124,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFile.add(mntmExit);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -139,7 +140,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 95);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 				
@@ -219,7 +220,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 				});
 				
 				panel = new JPanel();
-				panel.setBackground(SystemColor.inactiveCaptionBorder);
+				panel.setBackground(new Color(95, 158, 160));
 				panel.setBorder(new TitledBorder(null, "Thông tin khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 				panel.setBounds(28, 165, 1106, 95);
 				contentPane.add(panel);
@@ -245,7 +246,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 				panel_2.setBounds(28, 272, 1104, 113);
 				panel_2.setLayout(null);
 				panel_2.setBorder(new TitledBorder(null, "Danh Sách Phiếu khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+				panel_2.setBackground(new Color(95, 158, 160));
 				contentPane.add(panel_2);
 				
 				
@@ -253,7 +254,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 				JPanel panel_1 = new JPanel();
 				panel_1.setLayout(null);
 				panel_1.setBorder(new TitledBorder(null, "Kết quả khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+				panel_1.setBackground(new Color(95, 158, 160));
 				panel_1.setBounds(26, 396, 1106, 153);
 				contentPane.add(panel_1);
 				
@@ -304,6 +305,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 //				contentPane.add(btnhuy);
 				
 				btnluu = new JButton("Lưu");
+				btnluu.setBackground(new Color(102, 205, 170));
 				btnluu.setIcon(new ImageIcon("luu.png"));
 				btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnluu.setBounds(767, 564, 155, 57);

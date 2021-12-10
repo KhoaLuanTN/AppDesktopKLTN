@@ -17,7 +17,9 @@ import Entity.Thuoc;
 
 public class ThuocDAO {
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
+	
 	static String GET_ONE_THUOC=url+"/thuoc/getone";
 	static String GET_ALL_THUOC=url+"/thuoc/getall";
 

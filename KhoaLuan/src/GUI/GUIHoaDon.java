@@ -106,6 +106,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -119,7 +120,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 93);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 				
@@ -217,7 +218,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		panel_2.setBounds(28, 163, 1104, 147);
 		panel_2.setLayout(null);
 		panel_2.setBorder(new TitledBorder(null, "Danh sách hóa đơn", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_2.setBackground(new Color(95, 158, 160));
 		contentPane.add(panel_2);
 		
 		String[]header = {"Mã","Tên thuốc","Số lượng", "Hướng dẫn sử dụng","Giá tiền"};
@@ -237,17 +238,19 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setLayout(null);
 		panel_2_1.setBorder(new TitledBorder(null, "Chi tiết các khoản thu", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2_1.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_2_1.setBackground(new Color(95, 158, 160));
 		panel_2_1.setBounds(28, 320, 1104, 254);
 		contentPane.add(panel_2_1);
 		
 		btnhuy = new JButton("Quay Lại");
+		btnhuy.setBackground(new Color(102, 205, 170));
 		btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 		btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnhuy.setBounds(977, 597, 155, 57);
 		contentPane.add(btnhuy);
 		
 		btnluu = new JButton("Thanh Toán");
+		btnluu.setBackground(new Color(102, 205, 170));
 		btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnluu.setBounds(752, 597, 155, 57);
 		contentPane.add(btnluu);

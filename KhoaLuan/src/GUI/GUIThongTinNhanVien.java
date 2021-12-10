@@ -123,7 +123,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -136,13 +136,14 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		contentPane.add(lbltitle);
 		
 		Jpanel_2 = new JPanel();
-		Jpanel_2.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_2.setBackground(new Color(95, 158, 160));
 		Jpanel_2.setBorder(BorderFactory.createTitledBorder("Chức năng"));
 		Jpanel_2.setBounds(10, 438, 1104, 163);
 		contentPane.add(Jpanel_2);
 		Jpanel_2.setLayout(null);
 		
 		btnhuy = new JButton("Quay Lại");
+		btnhuy.setBackground(new Color(102, 205, 170));
 		btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 		btnhuy.setBounds(924, 95, 155, 57);
 		Jpanel_2.add(btnhuy);
@@ -224,12 +225,14 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		txttim.setColumns(10);
 				
 		btnluu = new JButton("Lưu");
+		btnluu.setBackground(new Color(102, 205, 170));
 		btnluu.setIcon(new ImageIcon("luu.png"));
 		btnluu.setBounds(380, 23, 155, 57);
 		Jpanel_2.add(btnluu);
 		btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				
 		btnsua = new JButton("Sửa");
+		btnsua.setBackground(new Color(102, 205, 170));
 		btnsua.setIcon(new ImageIcon("sua.png"));
 		btnsua.setBounds(200, 23, 155, 57);
 		Jpanel_2.add(btnsua);
@@ -238,6 +241,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 	
 				
 		btnthem = new JButton("Thêm");
+		btnthem.setBackground(new Color(102, 205, 170));
 		btnthem.setIcon(new ImageIcon("add.png"));
 		btnthem.setBounds(20, 23, 155, 57);
 		Jpanel_2.add(btnthem);
@@ -251,7 +255,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		scrollPane.setBackground(SystemColor.scrollbar);
 		
 		Jpanel = new JPanel();
-		Jpanel.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel.setBackground(new Color(95, 158, 160));
 		Jpanel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin nhân viên", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel.setBounds(10, 51, 1104, 204);
 		contentPane.add(Jpanel);
@@ -417,7 +421,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		radnam.addActionListener(this);
 		
 		panel = new JPanel();
-		panel.setBackground(SystemColor.inactiveCaptionBorder);
+		panel.setBackground(new Color(95, 158, 160));
 		panel.setBorder(new TitledBorder(null, "Danh sách nhân viên", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(10, 266, 1106, 161);
 		contentPane.add(panel);

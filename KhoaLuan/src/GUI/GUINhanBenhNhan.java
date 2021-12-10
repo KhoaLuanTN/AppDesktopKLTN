@@ -83,6 +83,7 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -94,7 +95,7 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 		contentPane.add(lbltitle);
 		
 		Jpanel = new JPanel();
-		Jpanel.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel.setBackground(new Color(95, 158, 160));
 		Jpanel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel.setBounds(10, 64, 815, 453);
 		contentPane.add(Jpanel);
@@ -232,11 +233,13 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 		Jpanel.add(textArea);
 		
 		btnnhan = new JButton("Nhận Bệnh Nhân");
+		btnnhan.setBackground(new Color(102, 205, 170));
 		btnnhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnnhan.setBounds(261, 547, 156, 44);
 		contentPane.add(btnnhan);
 		
 		btnkham = new JButton("Khám Bệnh Nhân");
+		btnkham.setBackground(new Color(102, 205, 170));
 		btnkham.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnkham.setBounds(471, 547, 156, 44);
 		contentPane.add(btnkham);

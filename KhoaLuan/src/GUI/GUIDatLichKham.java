@@ -146,6 +146,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -161,7 +162,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 93);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 				
@@ -240,7 +241,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				JPanel panel_1 = new JPanel();
 				panel_1.setLayout(null);
 				panel_1.setBorder(new TitledBorder(null, "Lịch khám bệnh ", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+				panel_1.setBackground(new Color(95, 158, 160));
 				panel_1.setBounds(28, 316, 1106, 187);
 				contentPane.add(panel_1);
 				
@@ -277,18 +278,21 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				panel_1.add(tattrieuchung);
 				
 				btnhuy = new JButton("Quay Lại");
+				btnhuy.setBackground(new Color(102, 205, 170));
 				btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 				btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnhuy.setBounds(977, 564, 155, 57);
 				contentPane.add(btnhuy);
 				
 				btnluu = new JButton("Lưu");
+				btnluu.setBackground(new Color(102, 205, 170));
 				btnluu.setIcon(new ImageIcon("luu.png"));
 				btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnluu.setBounds(767, 564, 155, 57);
 				contentPane.add(btnluu);
 				
 				btnthem = new JButton("Thêm");
+				btnthem.setBackground(new Color(102, 205, 170));
 				btnthem.setIcon(new ImageIcon("sua.png"));
 				btnthem.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnthem.setBounds(53, 564, 155, 57);
@@ -348,10 +352,11 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			panel_2.setBounds(28, 163, 1104, 147);
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Danh sách lịch khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+			panel_2.setBackground(new Color(95, 158, 160));
 			contentPane.add(panel_2);
 			
 			btncapnhat = new JButton("Cập nhật");
+			btncapnhat.setBackground(new Color(102, 205, 170));
 			btncapnhat.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			btncapnhat.setBounds(274, 564, 196, 57);
 			contentPane.add(btncapnhat);
@@ -573,6 +578,10 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				XoaRong();
 				removeTable();
 				updateTableData();
+			}
+			else {
+				JOptionPane.showMessageDialog(this,"Thêm lịch hẹn thất bại !","Chú ý",JOptionPane.CLOSED_OPTION);
+				
 			}
 		}
 		else {

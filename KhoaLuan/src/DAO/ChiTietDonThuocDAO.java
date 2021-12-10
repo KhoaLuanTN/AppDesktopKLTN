@@ -18,7 +18,8 @@ import Entity.ChiTietDonThuoc;
 
 public class ChiTietDonThuocDAO {
 
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;
 	
 	static String GET_ALL_CHI_TIET_DON_THUOC=url+"/chitietdonthuoc/getall";
 	static String POST_CHI_TIET_DON_THUOC=url+"/chitietdonthuoc/insert";

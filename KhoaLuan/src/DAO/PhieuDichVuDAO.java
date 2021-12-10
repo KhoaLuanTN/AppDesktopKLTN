@@ -21,7 +21,8 @@ public class PhieuDichVuDAO {
 //	static String POST_PHIEU_DICH_VU="http://13.212.45.136:5001/phieudichvu/insert";
 //	static String GET_ONE_PHIEU_DICH_VU="http://13.212.45.136:5001/phieudichvu/getone";
 	
-	static String url="http://localhost:5001";
+//	static String url="http://localhost:5001";
+	static String url=BenhNhanDAO.url;;
 	static String POST_PHIEU_DICH_VU=url+"/phieudichvu/insert";
 	static String GET_ONE_PHIEU_DICH_VU=url+"/phieudichvu/getone";
 	static String GET_ALL_DICH_VU=url+"/dichvu/getall";
