@@ -417,7 +417,6 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		// TODO Auto-generated method stub
 		ArrayList<HoaDon>list=new ArrayList<>();
 		try {
-			
 			list.addAll(hoaDonService.GetAllHoaDonChuaThanhToan(Long.parseLong((String) comboBox.getSelectedItem())));
 	
 		} catch (IOException e) {
