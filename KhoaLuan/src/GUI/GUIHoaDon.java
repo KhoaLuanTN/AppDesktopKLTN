@@ -38,6 +38,8 @@ import javax.swing.table.DefaultTableModel;
 
 import DAO.BenhNhanDAO;
 import DAO.ChiTietDonThuocDAO;
+import DAO.GhiExcelHoaDon;
+import DAO.GhiExcelHoaDonCaNhan;
 import DAO.HoaDonDAO;
 import DAO.LichHenDAO;
 import DAO.NhanVienDAO;
@@ -52,6 +54,7 @@ import Entity.NhanVien;
 import Entity.PhieuDichVu;
 import Entity.PhieuKhambenh;
 import Entity.TaiKhoan;
+import Entity.XuatHoaDon;
 
 public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 
@@ -60,9 +63,9 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 	private JLabel lbldiaChiBN;
 	private JTextField txthoTenBN,txtsdt;
 	private JLabel lblmaBN;
-	private JButton btnhuy,btnluu;
+	private JButton btnhuy,btnluu,btnxuat;
 	
-	private List<BenhNhan> listBN;
+	private List<String> listBN;
 	
 	private BenhNhanDAO benhnhanservice;
 	private HoaDonDAO hoaDonService;
@@ -73,13 +76,15 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 	private JComboBox comboBox;
 	
 	private TaiKhoan mTaiKhoan;
-	private NhanVien mNhanVien,mBacSy;
+	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;
 	private HoaDon mHoaDon;
 	
 	private DefaultTableModel datamodel,datamodel1,datamodel2; 
 	private JScrollPane scrollPane,scrollPane1,scrollPane2;
 	private JTable table,table1,table2;
+	
+	public static XuatHoaDon a=new XuatHoaDon();
 
 	/**
 	 * Launch the application.
@@ -160,7 +165,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		String todayAsString = df.format(today);
 				
 		try {
-			 listBN= benhnhanservice.GetAllBenhNhan();
+			 listBN= benhnhanservice.GetBenhNhanByPKChuaHoanThanh(todayAsString);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -169,7 +174,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		 comboBox = new JComboBox();
 				
 		for(int i=0;i<listBN.size();i++)
-			comboBox.addItem(listBN.get(i).getId());
+			comboBox.addItem(listBN.get(i));
 		comboBox.setSelectedItem(null);
 		comboBox.setBounds(152, 30, 268, 20);
 		Jpanel_1.add(comboBox);
@@ -197,7 +202,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 			public void itemStateChanged(ItemEvent e) {
 				
 						try {
-							mBenhNhan=benhnhanservice.GetOneBenhNhan(Long.parseLong(comboBox.getSelectedItem().toString()));
+							mBenhNhan=benhnhanservice.GetOneBenhNhan(Long.parseLong((String) comboBox.getSelectedItem()));
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -256,9 +261,17 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		contentPane.add(btnluu);
 		
 		comboBox.setEditable(true);
+		
+		btnxuat = new JButton("Xuất hóa đơn");
+		btnxuat.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnxuat.setBackground(new Color(102, 205, 170));
+		btnxuat.setBounds(538, 597, 155, 57);
+		contentPane.add(btnxuat);
 		table.addMouseListener(this);
 		btnhuy.addActionListener(this);
 		btnluu.addActionListener(this);
+		btnxuat.addActionListener(this);
+		
 		
 		
 	}
@@ -268,6 +281,8 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		// TODO Auto-generated method stub
 		int row = table.getSelectedRow();
 		PhieuKhambenh pkb= new PhieuKhambenh();
+		ArrayList<ChiTietDonThuoc>list=new ArrayList<>();
+		ArrayList<PhieuDichVu>list1=new ArrayList<>();
 		
 		removeTable1();
 		removeTable2();
@@ -282,7 +297,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 			e2.printStackTrace();
 		}
 		if(pkb!=null) {
-			ArrayList<ChiTietDonThuoc>list=new ArrayList<>();
+			
 			try {
 				list.addAll(chiTietDonThuocService.GetAllChiTietDonThuocByDonThuoc(pkb.getDonthuoc().getId()));
 			} catch (IOException e1) {
@@ -298,7 +313,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 			}
 		}
 		if(pkb!=null) {
-			ArrayList<PhieuDichVu>list1=new ArrayList<>();
+			
 			try {
 				list1.addAll(phieuDichVuService.GetAllDichVuByPhieuKham(pkb.getId()));
 			} catch (IOException e1) {
@@ -314,6 +329,14 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 			}
 		}
 		
+		a.setTenBN(pkb.getBenhnhan().getTen());
+		a.setCmnd(pkb.getBenhnhan().getCmnd());
+		a.setChandoan(pkb.getChanDoan());
+		a.setTenBS(pkb.getNhanvien().getTen());
+		a.setDsthuoc(list);
+		a.setDsdichvu(list1);
+		
+		
 		try {
 			mHoaDon=hoaDonService.GetOneHoaDon(Long.parseLong(table.getValueAt(row, 0).toString()));
 		} catch (NumberFormatException e1) {
@@ -323,7 +346,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		a.setTongTien((table.getValueAt(row, 2).toString()));
 	}
 
 	@Override
@@ -378,6 +401,15 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 				GUIChucNang cn= new GUIChucNang(mTaiKhoan, mNhanVien);
 				cn.setVisible(true);
 			}
+		}else if(o==btnxuat) {
+			GhiExcelHoaDonCaNhan ghi = new GhiExcelHoaDonCaNhan();
+			 try {
+				ghi.main(a);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			 JOptionPane.showMessageDialog(this,"Đã xuất hóa đơn của bệnh nhân "+a.getTenBN()+" tại : E:/KhoaLuan/ ","Thông báo",JOptionPane.CLOSED_OPTION);
 		}
 	}
 	public void updateTableData() 
@@ -385,7 +417,9 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		// TODO Auto-generated method stub
 		ArrayList<HoaDon>list=new ArrayList<>();
 		try {
-			list.addAll(hoaDonService.GetAllHoaDonChuaThanhToan((Long) comboBox.getSelectedItem()));
+			
+			list.addAll(hoaDonService.GetAllHoaDonChuaThanhToan(Long.parseLong((String) comboBox.getSelectedItem())));
+	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

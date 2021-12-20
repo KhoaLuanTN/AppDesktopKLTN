@@ -35,7 +35,7 @@ public class GhiExcelHoaDon {
 		PhieuDichVuDAO phieudichvuDao = new PhieuDichVuDAO();
 		
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Hoa Don sheet");
+        HSSFSheet sheet = workbook.createSheet("Hoa Don");
         
         
         List<HoaDon> list = hoadonDao.GetAllHoaDonDaThanhToan();
