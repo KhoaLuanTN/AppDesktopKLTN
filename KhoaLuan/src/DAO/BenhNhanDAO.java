@@ -26,8 +26,8 @@ import Entity.TaiKhoan;
 public class BenhNhanDAO {
 	
 	
-//	public static String url="http://localhost:5001";
-	public static String url="http://18.118.228.236:5001";
+	public static String url="http://localhost:5001";
+//	public static String url="http://18.118.228.236:5001";
 	
 	static String GET_ALL_BENH_NHAN=url+"/benhnhan/getall";
 	static String GET_ALL_PHIEU_KHAM=url+"/benhnhan/getlist";
